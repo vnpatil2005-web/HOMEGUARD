@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+node_modules/
+serviceAccount*.json
+*.pem
+*.key
+*.log
+.DS_Store
+Thumbs.db

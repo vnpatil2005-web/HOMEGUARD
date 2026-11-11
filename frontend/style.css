@@ -1,0 +1,1233 @@
+
+/* =========================================
+   HOMEGUARD - PROFESSIONAL DASHBOARD
+   Light Blue + Slate Dark Theme
+========================================= */
+
+
+/* =========================================
+   1. LIGHT THEME (DEFAULT)
+========================================= */
+
+:root {
+    --background: #eaf2ff;
+    --sidebar: #ffffff;
+    --surface: #ffffff;
+    --surface-soft: #f4f8ff;
+
+    --border: #d8e5f5;
+
+    --text: #172b4d;
+    --muted: #71819b;
+
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-light: #dbeafe;
+
+    --green: #16a34a;
+    --green-light: #dcfce7;
+
+    --red: #dc2626;
+    --red-light: #fee2e2;
+
+    --shadow: 0 5px 20px rgba(30, 64, 120, 0.07);
+}
+
+
+/* =========================================
+   2. PROFESSIONAL SLATE DARK THEME
+========================================= */
+
+body:not(.light-theme) {
+    --background: #182230;
+    --sidebar: #202d3d;
+    --surface: #263548;
+    --surface-soft: #304258;
+
+    --border: #3b4d63;
+
+    --text: #f1f5f9;
+    --muted: #b0bdcc;
+
+    --accent: #60a5fa;
+    --accent-hover: #3b82f6;
+    --accent-light: #263f5c;
+
+    --green: #4ade80;
+    --green-light: #173e32;
+
+    --red: #f87171;
+    --red-light: #492d35;
+
+    --shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================
+   3. GLOBAL STYLES
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--text);
+}
+
+p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   4. MAIN LAYOUT
+========================================= */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   5. SIDEBAR
+========================================= */
+
+.sidebar {
+    width: 250px;
+    min-width: 250px;
+
+    background: var(--sidebar);
+    border-right: 1px solid var(--border);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px 16px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    z-index: 100;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* BRAND */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 5px 10px 30px;
+}
+
+.brand-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--accent-light);
+    color: var(--accent);
+
+    font-size: 22px;
+}
+
+.brand h1 {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.brand p {
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+
+/* NAVIGATION */
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    width: 100%;
+    padding: 13px 15px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: transparent;
+    color: var(--muted);
+
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+
+    transition: 0.2s ease;
+}
+
+.nav-link:hover {
+    background: var(--surface-soft);
+    color: var(--accent);
+}
+
+.nav-link.active {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+.nav-link i {
+    width: 20px;
+    font-size: 17px;
+}
+
+
+/* SIDEBAR FOOTER */
+
+.sidebar-footer {
+    margin-top: auto;
+
+    padding: 18px 12px 5px;
+
+    border-top: 1px solid var(--border);
+
+    font-size: 12px;
+    color: var(--muted);
+}
+
+
+/* =========================================
+   6. MAIN CONTENT
+========================================= */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+
+    margin-left: 250px;
+
+    padding: 28px 35px;
+}
+
+
+/* =========================================
+   7. TOPBAR
+========================================= */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 35px;
+}
+
+.page-heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.page-heading > i {
+    font-size: 23px;
+    color: var(--accent);
+}
+
+.page-heading h2 {
+    font-size: 23px;
+    font-weight: 750;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+/* DEVICE STATUS */
+
+.device-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 9px 13px;
+
+    border: 1px solid var(--border);
+    border-radius: 30px;
+
+    background: var(--surface);
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+    background: var(--green);
+}
+
+
+/* TOPBAR BUTTONS */
+
+#notificationButton,
+#profileButton {
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: var(--surface);
+    color: var(--text);
+
+    position: relative;
+
+    font-size: 17px;
+    transition: 0.2s ease;
+}
+
+#notificationButton:hover,
+#profileButton:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+#notificationCount {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+
+    min-width: 17px;
+    height: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--red);
+    color: #ffffff;
+
+    font-size: 10px;
+}
+
+
+/* =========================================
+   8. PAGE NAVIGATION
+========================================= */
+
+.page {
+    display: none;
+    animation: fadeIn 0.25s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   9. SECTION HEADING
+========================================= */
+
+.section-heading {
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    font-size: 21px;
+    font-weight: 750;
+    margin-bottom: 6px;
+}
+
+.section-heading p {
+    font-size: 13px;
+}
+
+
+/* =========================================
+   10. DETECTION CARD
+========================================= */
+
+.detection-card {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--green);
+
+    border-radius: 16px;
+
+    padding: 28px;
+    margin-bottom: 22px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.detection-card.clear {
+    border-left-color: var(--green);
+}
+
+.detection-card.detected {
+    border-left-color: var(--red);
+}
+
+.detection-main {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+
+/* DETECTION ICON */
+
+.detection-icon {
+    width: 75px;
+    height: 75px;
+    min-width: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: var(--green-light);
+    color: var(--green);
+
+    font-size: 32px;
+}
+
+.detection-card.detected .detection-icon {
+    background: var(--red-light);
+    color: var(--red);
+}
+
+
+/* DETECTION INFORMATION */
+
+.detection-information {
+    flex: 1;
+}
+
+.detection-label {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.detection-card.clear .detection-label {
+    color: var(--green);
+}
+
+.detection-card.detected .detection-label {
+    color: var(--red);
+}
+
+#detectionTitle {
+    font-size: 27px;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+#detectionDescription {
+    font-size: 13px;
+}
+
+
+/* DETECTION FOOTER */
+
+.detection-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 25px;
+    padding-top: 18px;
+
+    border-top: 1px solid var(--border);
+}
+
+.detection-time {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+#detectionTime {
+    color: var(--text);
+    font-weight: 600;
+}
+
+
+/* ALERT BADGE */
+
+.alert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    background: var(--green-light);
+    color: var(--green);
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.detection-card.detected .alert-badge {
+    background: var(--red-light);
+    color: var(--red);
+}
+
+
+/* =========================================
+   11. DEVICE INFORMATION
+========================================= */
+
+.device-information-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    padding: 22px 25px;
+    margin-bottom: 30px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    box-shadow: var(--shadow);
+}
+
+.device-name,
+.last-update {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.device-name {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+#connectionLabel {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.last-update {
+    text-align: right;
+}
+
+.last-update span:first-child {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+#lastUpdate {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   12. QUICK ACCESS
+========================================= */
+
+.quick-access {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.quick-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 20px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 13px;
+
+    color: var(--text);
+    text-align: left;
+
+    box-shadow: var(--shadow);
+
+    transition: 0.2s ease;
+}
+
+.quick-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+}
+
+.quick-card > i:first-child {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: var(--accent-light);
+    color: var(--accent);
+
+    font-size: 19px;
+}
+
+.quick-card div {
+    flex: 1;
+}
+
+.quick-card h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.quick-card p {
+    font-size: 11px;
+}
+
+.quick-card > i:last-child {
+    color: var(--muted);
+}
+
+
+/* =========================================
+   13. HISTORY PAGE
+========================================= */
+
+.history-panel {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    padding: 23px;
+
+    box-shadow: var(--shadow);
+}
+
+.history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+.history-header h3 {
+    font-size: 17px;
+}
+
+#historyDate {
+    padding: 9px 12px;
+
+    background: var(--surface-soft);
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    font-size: 12px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+th {
+    padding: 14px 15px;
+
+    background: var(--surface-soft);
+    color: var(--muted);
+
+    font-size: 11px;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 15px;
+
+    border-bottom: 1px solid var(--border);
+
+    font-size: 13px;
+    color: var(--text);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: var(--surface-soft);
+}
+
+.empty-history {
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+}
+
+
+/* HISTORY STATUS BADGES */
+
+.history-status {
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.history-status.clear {
+    background: var(--green-light);
+    color: var(--green);
+}
+
+.history-status.detected {
+    background: var(--red-light);
+    color: var(--red);
+}
+
+.history-status.unknown {
+    background: var(--surface-soft);
+    color: var(--muted);
+}
+
+
+/* =========================================
+   14. ABOUT PAGE
+========================================= */
+
+.content-panel {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    padding: 30px;
+
+    box-shadow: var(--shadow);
+}
+
+.about-icon {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    background: var(--accent-light);
+    color: var(--accent);
+
+    border-radius: 15px;
+
+    font-size: 27px;
+}
+
+.content-panel h2 {
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.content-panel h3 {
+    font-size: 15px;
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+
+.content-panel p {
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.content-panel ul {
+    padding-left: 22px;
+    color: var(--muted);
+}
+
+.content-panel li {
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+/* =========================================
+   15. SETTINGS PAGE
+========================================= */
+
+.settings-panel {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    padding: 10px 24px;
+
+    box-shadow: var(--shadow);
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-item h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.setting-item p {
+    font-size: 12px;
+}
+
+
+/* SETTINGS SWITCH */
+
+.switch {
+    position: relative;
+    display: inline-block;
+
+    width: 46px;
+    height: 25px;
+
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch span {
+    position: absolute;
+    inset: 0;
+
+    background: #b8c4d5;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.switch span::before {
+    content: "";
+
+    position: absolute;
+
+    width: 19px;
+    height: 19px;
+
+    left: 3px;
+    bottom: 3px;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    transition: 0.3s;
+}
+
+.switch input:checked + span {
+    background: var(--accent);
+}
+
+.switch input:checked + span::before {
+    transform: translateX(21px);
+}
+
+
+/* =========================================
+   16. ADMIN LOGIN
+========================================= */
+
+#adminLoginPage {
+    min-height: 70vh;
+
+    align-items: center;
+    justify-content: center;
+}
+
+#adminLoginPage.active {
+    display: flex;
+}
+
+#adminLoginPage .content-card {
+    width: 100%;
+    max-width: 420px;
+
+    padding: 32px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    box-shadow: var(--shadow);
+}
+
+#adminLoginPage .content-card h2 {
+    text-align: center;
+
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+#adminLoginPage .content-card p {
+    text-align: center;
+
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+#adminLoginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#adminLoginForm input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    background: var(--surface-soft);
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    font-size: 13px;
+}
+
+#adminLoginForm input::placeholder {
+    color: var(--muted);
+}
+
+#adminLoginForm button {
+    padding: 13px;
+
+    background: var(--accent);
+    color: #ffffff;
+
+    border: none;
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+#adminLoginForm button:hover {
+    background: var(--accent-hover);
+}
+
+#loginMessage {
+    margin-top: 15px;
+
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/* =========================================
+   17. MAIN FOOTER
+========================================= */
+
+.main-footer {
+    margin-top: 40px;
+    padding: 20px 0;
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+
+    font-size: 11px;
+    color: var(--muted);
+}
+
+
+/* =========================================
+   18. RESPONSIVE DESIGN - TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 220px;
+        min-width: 220px;
+    }
+
+    .main-content {
+        margin-left: 220px;
+        padding: 25px 22px;
+    }
+
+}
+
+
+/* =========================================
+   19. RESPONSIVE DESIGN - MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .app-container {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+        min-width: 0;
+        height: auto;
+
+        padding: 15px;
+
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+        padding: 5px 5px 15px;
+    }
+
+    .navigation {
+        flex-direction: row;
+
+        overflow-x: auto;
+
+        padding-bottom: 5px;
+    }
+
+    .nav-link {
+        width: auto;
+        min-width: max-content;
+
+        padding: 11px 13px;
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px 15px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+
+        margin-bottom: 25px;
+    }
+
+    .topbar-actions {
+        width: 100%;
+
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .detection-card {
+        padding: 20px;
+    }
+
+    .detection-main {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .detection-icon {
+        width: 58px;
+        height: 58px;
+        min-width: 58px;
+
+        font-size: 24px;
+    }
+
+    #detectionTitle {
+        font-size: 21px;
+    }
+
+    .quick-access {
+        grid-template-columns: 1fr;
+    }
+
+    .device-information-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .last-update {
+        text-align: left;
+    }
+
+    .content-panel {
+        padding: 22px;
+    }
+
+    .history-panel {
+        padding: 15px;
+    }
+
+}
+
+
+/* =========================================
+   20. SMALL MOBILE DEVICES
+========================================= */
+
+@media (max-width: 420px) {
+
+    .page-heading h2 {
+        font-size: 19px;
+    }
+
+    .detection-main {
+        flex-direction: column;
+    }
+
+    .detection-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    #adminLoginPage .content-card {
+        padding: 23px;
+    }
+
+}
